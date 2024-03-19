@@ -4,7 +4,7 @@ public class Event {
 
     Scanner reader = new Scanner(System.in);
     public final static int capacity = 200;
-    private HashMap<String, Attendee> seatDetails = new HashMap<>(capacity, 0.6f);
+    HashMap<String, Attendee> seatDetails = new HashMap<>(capacity, 0.6f);
     private String eventID;
     private String eventName;
     private String eventVenue;
@@ -173,15 +173,25 @@ public class Event {
 
     case 6:
         System.out.println("Here is the list of attendees: " + "\n" + eventAttendees );
-        for (Attendee attendee : eventAttendees) {
-            System.out.println(attendee.toString() + "\n");
-        }
         break;
 
     case 7:
+        HandleComplementaryPasses compPass = new HandleComplementaryPasses();
+        compPass.handleComplementaryPasses();
         break;
-    default:
+    case 8:
+        HandlePerformances performance = new HandlePerformances();
+        performance.handlePerformances();
+        break;
+    case 9:
+        System.out.println("Enter the seat number to find its details:");
+        String seat = reader.nextLine();
+        getSeatDetails(seat);
+        break;
+     case 10:
+        break;
+        default:
         System.out.println("Invalid choice");
-}
+      }
     }
 }

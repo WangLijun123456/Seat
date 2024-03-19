@@ -48,6 +48,6 @@ public class Attendee {
             return"\n" +"Attendee Name:"+ name +
             "\n" + "EmaiL:"+email +
             "\n" + "Age:"+age+
-            "\n" + "Seat No.:"+ seatNo;
+            "\n" + "Seat No.:"+ seatNo + "\n";
             }
         }

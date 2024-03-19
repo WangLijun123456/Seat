@@ -6,7 +6,7 @@ public class HandleComplementaryPasses {
 static Scanner reader = new Scanner(System.in);
 static Stack<ComplementaryPasses> compPassess = new Stack<>();
 
-    public static void handleComplementaryPasses() {
+    public void handleComplementaryPasses() {
         int choice = 0;
         do{
             System.out.println("\n" + "Here are the complementary passes opreations available to you: " + "\n" );
@@ -15,16 +15,15 @@ static Stack<ComplementaryPasses> compPassess = new Stack<>();
             System.out.println("Type 3 to display the last redeemed complenentary pass:" + "\n");
             System.out.println("Type 4 to undo the redeened complenentary pass:" + "\n");
             System.out.println("Type 5 to QUIT:"+"\n");
-
             choice = reader.nextInt();
             reader.nextLine();
             switch(choice) {
                 case 1:
-                  System.out.println("How many complementary passes would you like to redeem?");
-                  int num = reader.nextInt();
+                  System.out.println("How many complementary passes would you like to redeem: ");
+                  int num=reader.nextInt();
                   reader.nextLine();
                   redeemComplementaryPassess(num);
-                  break;
+                break;
                 case 2:
                   displayComplementaryPasses();
                   break;
@@ -40,6 +39,7 @@ static Stack<ComplementaryPasses> compPassess = new Stack<>();
                   System.out.println("Invalid choice. Please enter a valid choice.");
             }
         } while(choice != 5);
+        
     }
 
     public static void redeemComplementaryPassess(int numOfPasses) {
@@ -67,7 +67,6 @@ static Stack<ComplementaryPasses> compPassess = new Stack<>();
 
         }
     }
-
     public static void displayComplementaryPasses(){
       System.out.println("Here is the list of redeemed complementary passes: " + "\n" + compPassess);
     }
@@ -84,6 +83,9 @@ static Stack<ComplementaryPasses> compPassess = new Stack<>();
             if(pass.getPassID().equals(ID)){
                 compPassess.pop();
                 System.out.println("The pass with the ID " + ID + " has been removed from the redeemed list.");
+              }else{
+                System.out.println("There is no such paa ID in the list");
+                return;
               }
         }
     }
